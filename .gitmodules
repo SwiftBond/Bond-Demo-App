@@ -1,0 +1,3 @@
+[submodule "Bond"]
+	path = Bond
+	url = git@github.com:SwiftBond/Bond.git
