@@ -13,13 +13,21 @@ class ListCellViewModel {
   let name: Dynamic<String>
   let username: Dynamic<String>
   let photo: Dynamic<UIImage?>
+  let photoUrl: String?
   
   init(name: String, username: String, photoUrl: String?) {
     self.name = Dynamic(name)
     self.username = Dynamic(username)
     self.photo = Dynamic<UIImage?>(nil) // initially no photo
+    self.photoUrl = photoUrl
+  }
+  
+  func fetchPhotoIfNeeded() {
+    if self.photo.value != nil {
+      // already have photo
+      return
+    }
     
-    // download photo
     if let photoUrl = photoUrl {
       if let photoUrl = NSURL(string: photoUrl) {
         let downloadTask = NSURLSession.sharedSession().downloadTaskWithURL(photoUrl) {

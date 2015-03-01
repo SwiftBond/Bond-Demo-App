@@ -14,12 +14,28 @@
 		EC0706941A76C9EA000A2908 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC0706921A76C9EA000A2908 /* LaunchScreen.xib */; };
 		EC0706AA1A76CB33000A2908 /* ListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0706A91A76CB33000A2908 /* ListCellViewModel.swift */; };
 		EC0706B11A76CE01000A2908 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0706B01A76CE01000A2908 /* ListViewModel.swift */; };
+		EC0F22E91AA34DB10051723D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F22E81AA34DB10051723D /* LoginViewController.swift */; };
+		EC0F22F21AA34DE00051723D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F22F11AA34DE00051723D /* LoginViewModel.swift */; };
 		EC58F1931A76E0980008C586 /* ListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC58F1921A76E0980008C586 /* ListCellView.swift */; };
 		ECD385801A7E90F400D5982D /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9251581A7E90BC002ACEDC /* Bond.framework */; };
 		ECD385821A7E910800D5982D /* Bond.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC9251581A7E90BC002ACEDC /* Bond.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		EC0F22ED1AA34DB20051723D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC9251521A7E90BC002ACEDC /* Bond.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DCA979691A83C3A100DD4A30;
+			remoteInfo = BondOSX;
+		};
+		EC0F22EF1AA34DB20051723D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC9251521A7E90BC002ACEDC /* Bond.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DCA979731A83C3A200DD4A30;
+			remoteInfo = BondOSXTests;
+		};
 		EC9251571A7E90BC002ACEDC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EC9251521A7E90BC002ACEDC /* Bond.xcodeproj */;
@@ -66,6 +82,8 @@
 		EC0706931A76C9EA000A2908 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		EC0706A91A76CB33000A2908 /* ListCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCellViewModel.swift; sourceTree = "<group>"; };
 		EC0706B01A76CE01000A2908 /* ListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		EC0F22E81AA34DB10051723D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EC0F22F11AA34DE00051723D /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		EC58F1921A76E0980008C586 /* ListCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCellView.swift; sourceTree = "<group>"; };
 		EC9251521A7E90BC002ACEDC /* Bond.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Bond.xcodeproj; path = Bond/Bond.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -103,10 +121,8 @@
 			children = (
 				EC9251521A7E90BC002ACEDC /* Bond.xcodeproj */,
 				EC0706891A76C9EA000A2908 /* AppDelegate.swift */,
-				EC07068B1A76C9EA000A2908 /* ListViewController.swift */,
-				EC0706B01A76CE01000A2908 /* ListViewModel.swift */,
-				EC58F1921A76E0980008C586 /* ListCellView.swift */,
-				EC0706A91A76CB33000A2908 /* ListCellViewModel.swift */,
+				EC0F22F41AA350280051723D /* Login */,
+				EC0F22F31AA3501D0051723D /* Repository list */,
 				EC07068D1A76C9EA000A2908 /* Main.storyboard */,
 				EC0706901A76C9EA000A2908 /* Images.xcassets */,
 				EC0706921A76C9EA000A2908 /* LaunchScreen.xib */,
@@ -123,11 +139,33 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EC0F22F31AA3501D0051723D /* Repository list */ = {
+			isa = PBXGroup;
+			children = (
+				EC0706B01A76CE01000A2908 /* ListViewModel.swift */,
+				EC07068B1A76C9EA000A2908 /* ListViewController.swift */,
+				EC0706A91A76CB33000A2908 /* ListCellViewModel.swift */,
+				EC58F1921A76E0980008C586 /* ListCellView.swift */,
+			);
+			name = "Repository list";
+			sourceTree = "<group>";
+		};
+		EC0F22F41AA350280051723D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EC0F22F11AA34DE00051723D /* LoginViewModel.swift */,
+				EC0F22E81AA34DB10051723D /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		EC9251531A7E90BC002ACEDC /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				EC9251581A7E90BC002ACEDC /* Bond.framework */,
 				EC92515A1A7E90BC002ACEDC /* BondTests.xctest */,
+				EC0F22EE1AA34DB20051723D /* Bond.framework */,
+				EC0F22F01AA34DB20051723D /* BondOSXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,6 +231,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		EC0F22EE1AA34DB20051723D /* Bond.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Bond.framework;
+			remoteRef = EC0F22ED1AA34DB20051723D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC0F22F01AA34DB20051723D /* BondOSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = BondOSXTests.xctest;
+			remoteRef = EC0F22EF1AA34DB20051723D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		EC9251581A7E90BC002ACEDC /* Bond.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -227,11 +279,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC0F22E91AA34DB10051723D /* LoginViewController.swift in Sources */,
 				EC58F1931A76E0980008C586 /* ListCellView.swift in Sources */,
 				EC07068C1A76C9EA000A2908 /* ListViewController.swift in Sources */,
 				EC0706B11A76CE01000A2908 /* ListViewModel.swift in Sources */,
 				EC0706AA1A76CB33000A2908 /* ListCellViewModel.swift in Sources */,
 				EC07068A1A76C9EA000A2908 /* AppDelegate.swift in Sources */,
+				EC0F22F21AA34DE00051723D /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

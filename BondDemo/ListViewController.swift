@@ -12,6 +12,7 @@ import Bond
 class ListViewController: UITableViewController {
   
   var listViewModel: ListViewModel!
+  var tableViewDataSourceBond: UITableViewDataSourceBond<UITableViewCell>!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -23,15 +24,19 @@ class ListViewController: UITableViewController {
     
     // create view model
     listViewModel = ListViewModel(githubApi: "https://api.github.com/repositories")
+    
+    // create a bond for table view data source
+    tableViewDataSourceBond = UITableViewDataSourceBond(tableView: self.tableView)
 
     // establish a bond between view model and table view
     listViewModel.repositoryCellViewModels.map { [unowned self] (viewModel: ListCellViewModel) -> ListCellView in
-      let cell = self.tableView.dequeueReusableCellWithIdentifier("cell") as ListCellView
+      let cell = (self.tableView.dequeueReusableCellWithIdentifier("cell") as? ListCellView)!
       viewModel.name ->> cell.nameLabel
       viewModel.username ->> cell.ownerLabel
       viewModel.photo ->> cell.avatarImageView
+      viewModel.fetchPhotoIfNeeded()
       return cell
-    } ->> self.tableView
+    } ->> tableViewDataSourceBond
   }
   
   override func viewWillAppear(animated: Bool) {

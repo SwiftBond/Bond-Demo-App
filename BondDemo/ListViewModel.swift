@@ -35,14 +35,14 @@ class ListViewModel {
             
             for repo in jsonResult {
               if let repo = repo as? NSDictionary {
-                let id = repo["id"] as? Int ?? 0
-                let name = repo["name"] as? String ?? ""
+                let id = (repo["id"] as? Int) ?? 0
+                let name = (repo["name"] as? String) ?? ""
                 
                 var username: String = ""
                 var photoURL: String? = nil
                 
                 if let owner = repo["owner"] as? NSDictionary {
-                  username = owner["login"] as? String ?? ""
+                  username = (owner["login"] as? String) ?? ""
                   photoURL = owner["avatar_url"] as? String
                 }
                 
