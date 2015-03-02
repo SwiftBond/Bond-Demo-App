@@ -49,7 +49,6 @@ class LoginViewController: UIViewController
     
     // Observe button taps
     // Use ->| operator that does not fire at binding time when observing events
-    //loginButtonTapObserver
     loginButton.dynEvent.filter(==, .TouchUpInside) ->| loginButtonTapObserver
   }
 }
