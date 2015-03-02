@@ -33,22 +33,22 @@ class LoginViewController: UIViewController
   }
   
   override func viewDidLoad() {
-    // Make bi-directional binding between text fields and corresponding properties in VM.
+    // Make bi-directional binding between text fields and corresponding properties in VM
     viewModel.username <->> usernameTextField
     viewModel.password <->> passwordTextField
     
-    // Show activity indicator when view model tells so.
+    // Show activity indicator when view model tells so
     viewModel.activityIndicatorVisible ->> activityIndicator
     
-    // Enable login button when view model tells so.
+    // Enable login button when view model tells so
     viewModel.loginButtonEnabled ->> loginButton
     
-    // Observe login state changes and zip self on each value change.
-    // Use ->| operator that does not fire at binding time when observing events.
+    // Observe login state changes
+    // Use ->| operator that does not fire at binding time when observing events
     viewModel.loginState ->| loginStateChangedObserver
     
-    // Observe button taps and rewrite event value with viewModel.
-    // Use ->| operator that does not fire at binding time when observing events.
+    // Observe button taps
+    // Use ->| operator that does not fire at binding time when observing events
     //loginButtonTapObserver
     loginButton.dynEvent.filter(==, .TouchUpInside) ->| loginButtonTapObserver
   }
