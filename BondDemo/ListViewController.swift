@@ -30,7 +30,7 @@ class ListViewController: UITableViewController {
 
     // establish a bond between view model and table view
     listViewModel.repositoryCellViewModels.map { [unowned self] (viewModel: ListCellViewModel, index: Int) -> ListCellView in
-      let cell = (self.tableView.dequeueReusableCellWithIdentifier("cell") as? ListCellView)!
+      let cell = (self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: NSIndexPath(forItem: index, inSection: 0)) as? ListCellView)!
       viewModel.name ->> cell.nameLabel
       viewModel.username ->> cell.ownerLabel
       viewModel.photo ->> cell.avatarImageView
