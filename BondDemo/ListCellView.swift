@@ -19,5 +19,7 @@ class ListCellView: UITableViewCell {
     super.prepareForReuse()
     avatarImageView.image = nil
     avatarImageView.designatedBond.unbindAll()
+    nameLabel.designatedBond.unbindAll()
+    ownerLabel.designatedBond.unbindAll()
   }
 }
