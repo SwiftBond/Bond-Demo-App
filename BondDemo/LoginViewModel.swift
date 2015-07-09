@@ -26,8 +26,8 @@ class LoginViewModel {
   }
   
   var loginButtonEnabled: Dynamic<Bool> {
-    let usernameValid = username.map { countElements($0) > 2 }
-    let passwordValid = password.map { countElements($0) > 2 }
+    let usernameValid = username.map { count($0) > 2 }
+    let passwordValid = password.map { count($0) > 2 }
     return reduce(usernameValid, passwordValid, loginInProgress) { $0 && $1 && $2 == false }
   }
   
