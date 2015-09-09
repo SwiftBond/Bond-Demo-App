@@ -32,9 +32,9 @@ class ListViewController: UITableViewController {
     dataSource.bindTo(tableView) { (indexPath, dataSource, tableView) -> UITableViewCell in
       let cell = (self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as? ListCellView)!
       let viewModel = dataSource[indexPath.section][indexPath.row]
-      viewModel.name.bindTo(cell.nameLabel.bnd_text)
-      viewModel.username.bindTo(cell.ownerLabel.bnd_text)
-      viewModel.photo.bindTo(cell.avatarImageView.bnd_image)
+      viewModel.name.bindTo(cell.nameLabel.bnd_text).disposeIn(cell.bnd_bag)
+      viewModel.username.bindTo(cell.ownerLabel.bnd_text).disposeIn(cell.bnd_bag)
+      viewModel.photo.bindTo(cell.avatarImageView.bnd_image).disposeIn(cell.bnd_bag)
       viewModel.fetchPhotoIfNeeded()
       return cell
     }

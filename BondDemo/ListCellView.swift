@@ -18,5 +18,7 @@ class ListCellView: UITableViewCell {
   override func prepareForReuse() {
     super.prepareForReuse()
     avatarImageView.image = nil
+
+    bnd_bag.dispose()
   }
 }
