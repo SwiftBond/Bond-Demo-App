@@ -22,6 +22,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CEB986F61B9C782D00969A56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC9251521A7E90BC002ACEDC /* Bond.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03ACB4FE1AB555D6001B3E64;
+			remoteInfo = iOSAppForTesting;
+		};
 		EC0F22ED1AA34DB20051723D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EC9251521A7E90BC002ACEDC /* Bond.xcodeproj */;
@@ -166,6 +173,7 @@
 				EC92515A1A7E90BC002ACEDC /* BondTests.xctest */,
 				EC0F22EE1AA34DB20051723D /* Bond.framework */,
 				EC0F22F01AA34DB20051723D /* BondOSXTests.xctest */,
+				CEB986F71B9C782D00969A56 /* iOSAppForTesting.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,6 +206,7 @@
 		EC07067C1A76C9E9000A2908 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Srdan Rasic";
 				TargetAttributes = {
@@ -231,6 +240,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		CEB986F71B9C782D00969A56 /* iOSAppForTesting.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = iOSAppForTesting.app;
+			remoteRef = CEB986F61B9C782D00969A56 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		EC0F22EE1AA34DB20051723D /* Bond.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;

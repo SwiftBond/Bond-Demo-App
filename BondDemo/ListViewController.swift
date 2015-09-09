@@ -12,7 +12,7 @@ import Bond
 class ListViewController: UITableViewController {
   
   var listViewModel: ListViewModel!
-  var tableViewDataSourceBond: UITableViewDataSourceBond<UITableViewCell>!
+  var dataSource: ObservableArray<ObservableArray<ListCellViewModel>>!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,19 +24,20 @@ class ListViewController: UITableViewController {
     
     // create view model
     listViewModel = ListViewModel(githubApi: "https://api.github.com/repositories")
+    dataSource = ObservableArray([listViewModel.repositoryCellViewModels])
     
     // create a bond for table view data source
-    tableViewDataSourceBond = UITableViewDataSourceBond(tableView: self.tableView)
 
     // establish a bond between view model and table view
-    listViewModel.repositoryCellViewModels.map { [unowned self] (viewModel: ListCellViewModel, index: Int) -> ListCellView in
-      let cell = (self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: NSIndexPath(forItem: index, inSection: 0)) as? ListCellView)!
-      viewModel.name ->> cell.nameLabel
-      viewModel.username ->> cell.ownerLabel
-      viewModel.photo ->> cell.avatarImageView
+    dataSource.bindTo(tableView) { (indexPath, dataSource, tableView) -> UITableViewCell in
+      let cell = (self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as? ListCellView)!
+      let viewModel = dataSource[indexPath.section][indexPath.row]
+      viewModel.name.bindTo(cell.nameLabel.bnd_text)
+      viewModel.username.bindTo(cell.ownerLabel.bnd_text)
+      viewModel.photo.bindTo(cell.avatarImageView.bnd_image)
       viewModel.fetchPhotoIfNeeded()
       return cell
-    } ->> tableViewDataSourceBond
+    }
   }
   
   override func viewWillAppear(animated: Bool) {

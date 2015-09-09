@@ -18,8 +18,5 @@ class ListCellView: UITableViewCell {
   override func prepareForReuse() {
     super.prepareForReuse()
     avatarImageView.image = nil
-    avatarImageView.designatedBond.unbindAll()
-    nameLabel.designatedBond.unbindAll()
-    ownerLabel.designatedBond.unbindAll()
   }
 }

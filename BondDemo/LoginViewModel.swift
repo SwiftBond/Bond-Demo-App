@@ -15,33 +15,35 @@ enum LoginState {
 }
 
 class LoginViewModel {
-  let username = Dynamic<String>("Steve")
-  let password = Dynamic<String>("")
-  
-  let loginState = Dynamic<LoginState>(.None)
-  
+  let username = Observable<String?>("Steve")
+  let password = Observable<String?>("")
+
+  let loginState = Observable<LoginState>(.None)
+
   // true while login is in progress, and false otherwise
-  private var loginInProgress: Dynamic<Bool> {
+  private var loginInProgress: EventProducer<Bool> {
     return loginState.map { $0 == LoginState.InProgress }
   }
-  
-  var loginButtonEnabled: Dynamic<Bool> {
-    let usernameValid = username.map { count($0) > 2 }
-    let passwordValid = password.map { count($0) > 2 }
-    return reduce(usernameValid, passwordValid, loginInProgress) { $0 && $1 && $2 == false }
-  }
-  
-  var activityIndicatorVisible: Dynamic<Bool> {
+
+  var activityIndicatorVisible: EventProducer<Bool> {
     return loginInProgress
   }
-  
+
+  var loginButtonEnabled: EventProducer<Bool> {
+    let usernameValid = username.map { $0!.characters.count > 2 }
+    let passwordValid = password.map { $0!.characters.count > 2 }
+    return usernameValid.combineLatestWith(passwordValid).combineLatestWith(loginInProgress).map { inputs, progress in
+      inputs.0 == true && inputs.1 == true && progress == false
+    }
+  }
+
   func login() {
     self.loginState.value = .InProgress
-    println("Logging in as \(username.value).")
+    print("Logging in as \(username.value).")
 
     let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
     dispatch_after(delayTime, dispatch_get_main_queue()) {
-      println("Logged in as \(self.username.value).")
+      print("Logged in as \(self.username.value).")
       self.loginState.value = .LoggedIn
     }
   }
